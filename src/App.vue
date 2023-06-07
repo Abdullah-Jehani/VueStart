@@ -162,7 +162,7 @@ the old way to compine v-for and v-if
 <!-- Always use bind when you input value integer or boolean in props like the case in likes -->
 
 <componentC></componentC>
-<h3>AppComponent Username {{injectname}}</h3>
+<h3>AppComponent Username -  {{injectname}}</h3>
 </template>   
 <script> 
 import greetPrint from './assets/components/greet.vue' 
