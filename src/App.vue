@@ -154,12 +154,35 @@ the old way to compine v-for and v-if
 <input type="text" v-model="movieInfo.title">
 <input type="text" v-model="movieInfo.actor">
 <button @click="movieList.push('WonderWoman')">Add movie</button>
+<greetPrint name="Abdullah" heroName="mohammed"></greetPrint>
+<greetPrint name="Osama" heroName="Ali"></greetPrint>
+<greetPrint :name="Fname" :heroName="Aka"></greetPrint>
+<!-- You can use props to identify properties of the component, and for the aactual data you use data()  -->
+<ArticleComponent :title="title" :likes="500000"  :isPublished="false"  style="color: green;"  />
+<!-- Always use bind when you input value integer or boolean in props like the case in likes -->
+
+<componentC></componentC>
+<h3>AppComponent Username {{injectname}}</h3>
 </template>   
-<script>
+<script> 
+import greetPrint from './assets/components/greet.vue' 
+import ArticleComponent from './assets/components/Article.vue' 
+import componentC from './assets/components/componentC.vue' 
+
+
 export default{
   name: 'App' , 
+  components: {
+    greetPrint,
+    ArticleComponent , 
+    componentC,
+  },
   data() {
     return {
+      injectname : 'Abdullah' , 
+      title : 'Blood and Fire' , 
+      Fname: 'Abdullah' , 
+      Aka : 'Aljehani' , 
       movie: 'Batman' ,
       movieInfo: {
         title: 'Based on true story' ,
@@ -324,9 +347,15 @@ console.log('Form values' , this.formvalues)
     }
    
 
+  } , 
+  provide() {
+    return {
+      username: this.injectname
+    }
+  }
   }
  
-} ;
+
 </script>
 
 <style>

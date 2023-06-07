@@ -1,0 +1,26 @@
+props => from the child to parent , must go through all steps above
+inject and provide => from the parent to the child , the parent can give the child value immediately .
+provide for the father and inject for the child 
+
+Note : 
+when injecting to the child component, we cannot display it in the parent component 
+so , we first set the inject value to value in the data() and call it using this. 
+
+example : 
+
+<template>
+<h2> {{username}} </h2>
+</template>
+<script>
+data() {
+    return {
+        username: 'Abdullah,
+    }
+}
+provide () {       // to be givn to the child component.
+    return {
+    name : this.username 
+    }
+} { 
+}
+</script>
