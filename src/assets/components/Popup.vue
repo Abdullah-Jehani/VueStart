@@ -1,17 +1,34 @@
 <template>
     <div>
         <h2>this is popup yes its man</h2>
-        <button @click="$emit('close')">{{name}}</button>
+        <input type="text" v-model="names">
+        <button @click="$emit('close' , names)">{{name}}</button>
     </div>
 </template>
 
 <script>
 export default {
 name: 'PopUpComponent' , 
-emits: ['close'],
+emits:  {
+    close(names) {
+        if(!names) {
+            return false
+        }else {
+            return true
+        }
+
+    }
+},
 props: {
     name: String , 
-}
+} , 
+data() {
+    return {
+        names: '' ,
+    }
+} , 
+
+
 }
 </script>
 

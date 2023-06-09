@@ -164,7 +164,7 @@ the old way to compine v-for and v-if
 <componentC></componentC>
 <h3>AppComponent Username -  {{injectname}}</h3>
   <button @click="showPopup = true">Show Pop Up</button>
-  <PopUpComponent name="Closing Now" v-show="showPopup" @close="showPopup = false" />
+  <PopUpComponent name="Closing Now" v-show="showPopup" @close="popupFunction" />
 
 </template>   
 <script> 
@@ -282,6 +282,10 @@ export default{
     } ;
   },
   methods: {
+    popupFunction(name) {
+      this.showPopup = false
+      console.log('name' , name)
+    } , 
   overalltax(tax) {
     return tax + this.AddedTax
 // when reciving from data property , always use this

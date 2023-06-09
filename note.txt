@@ -30,3 +30,4 @@ first , in script block we declare the emmits: ['close'] ,
 second , in template block we assign it to an HTML tag <button @click="emit('close')">Close Me </button>
 third, in the parent component we make use of it <popup @close="condation" />
 in last line , we used our custom event thatr we have created 
+we can also pass data with the emit event like => <button @click="$emit('close')">Close </button> 
