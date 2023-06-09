@@ -163,22 +163,27 @@ the old way to compine v-for and v-if
 
 <componentC></componentC>
 <h3>AppComponent Username -  {{injectname}}</h3>
+  <button @click="showPopup = true">Show Pop Up</button>
+  <PopUpComponent name="Closing Now" v-show="showPopup" @close="showPopup = false" />
+
 </template>   
 <script> 
 import greetPrint from './assets/components/greet.vue' 
 import ArticleComponent from './assets/components/Article.vue' 
 import componentC from './assets/components/componentC.vue' 
-
+import PopUpComponent from './assets/components/Popup.vue'
 
 export default{
   name: 'App' , 
   components: {
+    PopUpComponent,
     greetPrint,
     ArticleComponent , 
     componentC,
   },
   data() {
     return {
+      showPopup:false , 
       injectname : 'Abdullah' , 
       title : 'Blood and Fire' , 
       Fname: 'Abdullah' , 
@@ -366,6 +371,8 @@ console.log('Form values' , this.formvalues)
   /* text-align: center; */
   color: #2c3e50;
   margin-top: 60px;
+  display: grid; 
+  place-items: center;
 }
 .underlined {
   text-decoration: underline;

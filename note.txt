@@ -1,7 +1,4 @@
-props => from the child to parent , must go through all steps above
-inject and provide => from the parent to the child , the parent can give the child value immediately .
-provide for the father and inject for the child 
-
+props => While props depends on a specific parent-child relationship, the Provide/Inject API will inject data into the parent-child tree for any descendant to consume
 Note : 
 when injecting to the child component, we cannot display it in the parent component 
 so , we first set the inject value to value in the data() and call it using this. 
@@ -24,3 +21,12 @@ provide () {       // to be givn to the child component.
 } { 
 }
 </script>
+
+
+
+to make communication between child and parent , we use emmits
+Example => our child component (popup) 
+first , in script block we declare the emmits: ['close'] , 
+second , in template block we assign it to an HTML tag <button @click="emit('close')">Close Me </button>
+third, in the parent component we make use of it <popup @close="condation" />
+in last line , we used our custom event thatr we have created 
