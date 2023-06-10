@@ -156,7 +156,7 @@ the old way to compine v-for and v-if
 <button @click="movieList.push('WonderWoman')">Add movie</button>
 <greetPrint name="Abdullah" heroName="mohammed"></greetPrint>
 <greetPrint name="Osama" heroName="Ali"></greetPrint>
-<greetPrint :name="Fname" :heroName="Aka"></greetPrint>
+<greetPrint :name="Fname" :heroName="Aka">Hello world</greetPrint>
 <!-- You can use props to identify properties of the component, and for the aactual data you use data()  -->
 <ArticleComponent :title="title" :likes="500000"  :isPublished="false"  style="color: green;"  />
 <!-- Always use bind when you input value integer or boolean in props like the case in likes -->
@@ -166,7 +166,11 @@ the old way to compine v-for and v-if
   <button @click="showPopup = true">Show Pop Up</button>
   <PopUpComponent name="Closing Now" v-show="showPopup" @close="popupFunction" />
   <InputComponent v-model="componentName"/> 
-
+  <CardComponent content="This is My Card Number 1" />
+  <card-component>Hello World</card-component>
+  <card-component><h2>Hello WORLD</h2></card-component>
+  <card-component><img src="https://picsum.photos/200" /></card-component>
+<card-component></card-component>
 </template>   
 <script> 
 import greetPrint from './assets/components/greet.vue' 
@@ -174,6 +178,7 @@ import ArticleComponent from './assets/components/Article.vue'
 import componentC from './assets/components/componentC.vue' 
 import PopUpComponent from './assets/components/Popup.vue'
 import InputComponent from './assets/components/input.vue'
+import CardComponent from './assets/components/card.vue' 
 export default{
   name: 'App' , 
   components: {
@@ -182,6 +187,7 @@ export default{
     ArticleComponent , 
     componentC,
     InputComponent ,
+    CardComponent
   },
   data() {
     return {

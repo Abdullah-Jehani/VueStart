@@ -1,3 +1,4 @@
+https://github.com/Abdullah-Jehani/VueStart
 props => While props depends on a specific parent-child relationship, the Provide/Inject API will inject data into the parent-child tree for any descendant to consume
 Note : 
 when injecting to the child component, we cannot display it in the parent component 
@@ -53,3 +54,7 @@ export default {
         modelValue: String , 
     }
 }
+
+### Slots => 
+are simmilar to props , but the difference is the slots give you more freedom tob pass like HTML structure or image 
+ while the props only allow to pass text 
