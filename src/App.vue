@@ -170,7 +170,17 @@ the old way to compine v-for and v-if
   <card-component>Hello World</card-component>
   <card-component><h2>Hello WORLD</h2></card-component>
   <card-component><img src="https://picsum.photos/200" /></card-component>
-<card-component></card-component>
+<card-component>
+  <template v-slot:header >
+    <h1>HEADER</h1>
+  </template>
+  <template v-slot:default>
+    <img src="https://picsum.photos/200">
+  </template> 
+  <template v-slot:footer> 
+    <button>View Details</button>
+  </template>
+</card-component>
 </template>   
 <script> 
 import greetPrint from './assets/components/greet.vue' 

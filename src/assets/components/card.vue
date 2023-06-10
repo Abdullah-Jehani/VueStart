@@ -1,6 +1,14 @@
 <template>
     <div class="card">
-       <slot>Default Content</slot>
+        <div id="card-header">
+            <slot name="header"></slot>
+        </div>
+        <div id="card-content">
+            <slot></slot>
+        </div> 
+        <div id="card-footer">
+            <slot name="footer"></slot>
+        </div>
     </div>
 </template> 
 <script>
@@ -12,6 +20,9 @@ name: 'CardComponent' ,
 </script>
 
 <style>
+#card-footer {
+    margin-top: 10px;
+}
 .card {
     box-shadow: 0 4px 8px 0 rgba(0 , 0 , 0 , 0.2); 
     transition: .3s; 
