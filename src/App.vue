@@ -165,6 +165,7 @@ the old way to compine v-for and v-if
 <h3>AppComponent Username -  {{injectname}}</h3>
   <button @click="showPopup = true">Show Pop Up</button>
   <PopUpComponent name="Closing Now" v-show="showPopup" @close="popupFunction" />
+  <InputComponent v-model="componentName"/> 
 
 </template>   
 <script> 
@@ -172,7 +173,7 @@ import greetPrint from './assets/components/greet.vue'
 import ArticleComponent from './assets/components/Article.vue' 
 import componentC from './assets/components/componentC.vue' 
 import PopUpComponent from './assets/components/Popup.vue'
-
+import InputComponent from './assets/components/input.vue'
 export default{
   name: 'App' , 
   components: {
@@ -180,9 +181,11 @@ export default{
     greetPrint,
     ArticleComponent , 
     componentC,
+    InputComponent ,
   },
   data() {
     return {
+      componentName: '' , 
       showPopup:false , 
       injectname : 'Abdullah' , 
       title : 'Blood and Fire' , 

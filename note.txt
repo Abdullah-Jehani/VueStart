@@ -31,3 +31,25 @@ second , in template block we assign it to an HTML tag <button @click="emit('clo
 third, in the parent component we make use of it <popup @close="condation" />
 in last line , we used our custom event thatr we have created 
 we can also pass data with the emit event like => <button @click="$emit('close')">Close </button> 
+Emit Validation 
+emits : {
+    close(name) {
+        
+    }
+}
+
+when we want to use v-model with component 
+
+<template>
+    <input type="text" 
+    :value="modelValue"
+    @input="$emit('update:modelValue' , $event.target.value)"
+    >
+</template>
+<script>
+export default {
+    name: 'InputComponent',
+    props: { // its necesserry to identify this prop
+        modelValue: String , 
+    }
+}
