@@ -58,3 +58,17 @@ export default {
 ### Slots => 
 are simmilar to props , but the difference is the slots give you more freedom tob pass like HTML structure or image 
  while the props only allow to pass text 
+
+ slot Props 
+
+    <div>
+        <h3 v-for="name in names" :key="name.firstName">
+       <slot :firstName="name.firstName" :lastName="name.lastName"></slot>
+        </h3>
+    </div>
+
+    <NameList>
+  <template v-slot:default="slotProps">
+    {{slotProps.firstName}} {{slotProps.lastName}} 
+  </template>
+</NameList>

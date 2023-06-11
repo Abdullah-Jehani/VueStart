@@ -181,6 +181,23 @@ the old way to compine v-for and v-if
     <button>View Details</button>
   </template>
 </card-component>
+<NameList>
+  <template v-slot:default="slotProps">
+    {{slotProps.firstName}} {{slotProps.lastName}} 
+  </template>
+</NameList>
+<NameList>
+  <template v-slot:default="slotProps">
+    {{slotProps.lastName}} 
+  </template>
+</NameList>
+
+<salesComponent>
+  <template v-slot:default="slotProps"> 
+    {{slotProps.ProductName}} - {{slotProps.price}}
+  </template>
+</salesComponent>
+
 </template>   
 <script> 
 import greetPrint from './assets/components/greet.vue' 
@@ -189,6 +206,8 @@ import componentC from './assets/components/componentC.vue'
 import PopUpComponent from './assets/components/Popup.vue'
 import InputComponent from './assets/components/input.vue'
 import CardComponent from './assets/components/card.vue' 
+import NameList from './assets/components/NameList.vue'
+import SalesComponent from './assets/components/SalesComponent.vue'
 export default{
   name: 'App' , 
   components: {
@@ -197,7 +216,9 @@ export default{
     ArticleComponent , 
     componentC,
     InputComponent ,
-    CardComponent
+    CardComponent , 
+    NameList , 
+    SalesComponent
   },
   data() {
     return {
