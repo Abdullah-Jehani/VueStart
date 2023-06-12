@@ -198,6 +198,20 @@ the old way to compine v-for and v-if
   </template>
 </salesComponent>
 
+<StudentsComponent>
+  <template v-slot:default="slotProps">
+  ID => {{slotProps.id}} Name => {{slotProps.firstName}} City =>{{slotProps.city}}
+  </template>
+</StudentsComponent>
+
+<button @click="activeTab ='tabA' ">Tab A</button>
+<button @click="activeTab ='tabB' ">Tab B</button>
+<button @click="activeTab ='tabC' ">Tab C</button>
+
+<tabA v-if="activeTab==='tabA'"></tabA>
+<tabB v-if="activeTab==='tabB'"></tabB>
+<tabC v-if="activeTab==='tabC'"></tabC>
+
 </template>   
 <script> 
 import greetPrint from './assets/components/greet.vue' 
@@ -208,6 +222,11 @@ import InputComponent from './assets/components/input.vue'
 import CardComponent from './assets/components/card.vue' 
 import NameList from './assets/components/NameList.vue'
 import SalesComponent from './assets/components/SalesComponent.vue'
+import StudentsComponent from './assets/components/students.vue'
+import tabA from './assets/components/tabA.vue' 
+import tabB from './assets/components/tabB.vue' 
+import tabC from './assets/components/tabC.vue' 
+
 export default{
   name: 'App' , 
   components: {
@@ -218,10 +237,15 @@ export default{
     InputComponent ,
     CardComponent , 
     NameList , 
-    SalesComponent
+    SalesComponent , 
+    StudentsComponent ,
+    tabA , 
+    tabB , 
+    tabC
   },
   data() {
     return {
+      activeTab: 'tabA' , 
       componentName: '' , 
       showPopup:false , 
       injectname : 'Abdullah' , 
@@ -460,4 +484,5 @@ select {
   border-radius: 4px;
 
 }
+
 </style>
