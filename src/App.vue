@@ -203,14 +203,22 @@ the old way to compine v-for and v-if
   ID => {{slotProps.id}} Name => {{slotProps.firstName}} City =>{{slotProps.city}}
   </template>
 </StudentsComponent>
+<div style="display: flex; gap: 4.2px;">
+  <button style="padding: 4px 10px;" @click="activeTab ='tabA' ">Semester 1</button>
+  <button style="padding: 4px 10px;"  @click="activeTab ='tabB' ">Semester 2</button>
+  <button @click="activeTab ='tabC' ">Semester 3</button>
+</div>
+<keep-alive>
+<component :is="activeTab" /> 
+</keep-alive>
 
-<button @click="activeTab ='tabA' ">Tab A</button>
-<button @click="activeTab ='tabB' ">Tab B</button>
-<button @click="activeTab ='tabC' ">Tab C</button>
+<!-- this to replace the v-if 
+<tabA v-if="activeTab === "tabA"" />
+<tabA v-if="activeTab === "tabB"" />
+<tabA v-if="activeTab === "tabC"" />
 
-<tabA v-if="activeTab==='tabA'"></tabA>
-<tabB v-if="activeTab==='tabB'"></tabB>
-<tabC v-if="activeTab==='tabC'"></tabC>
+
+-->
 
 </template>   
 <script> 
@@ -245,7 +253,7 @@ export default{
   },
   data() {
     return {
-      activeTab: 'tabA' , 
+      activeTab: '' , 
       componentName: '' , 
       showPopup:false , 
       injectname : 'Abdullah' , 

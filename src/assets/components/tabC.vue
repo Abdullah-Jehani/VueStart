@@ -1,7 +1,12 @@
 <template>
     <div>
-        Tab C content
-
+<ul>
+    <li>int.to information system</li>
+    <li>programming 3</li>
+    <li>communication skills</li>
+    <li>mathematics for computing</li>
+    <li>phusics</li>
+</ul>
     </div>
 </template> 
 <script>

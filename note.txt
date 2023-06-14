@@ -72,3 +72,9 @@ are simmilar to props , but the difference is the slots give you more freedom to
     {{slotProps.firstName}} {{slotProps.lastName}} 
   </template>
 </NameList>
+
+<keep-alive>
+<component :is="activeTab" /> 
+</keep-alive>
+
+<keep-alive> used to save component contents when switch to another component .
