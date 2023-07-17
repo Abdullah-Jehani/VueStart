@@ -1,8 +1,10 @@
 <template>
     <div>
-        <h2>this is popup yes its man</h2>
+        <h2>this is popup</h2>
         <input type="text" v-model="names">
-        <button @click="$emit('close' , names)">{{name}}</button>
+        <button @click="$emit('close' , names)">
+            <slot></slot>        
+        </button>
     </div>
 </template>
 

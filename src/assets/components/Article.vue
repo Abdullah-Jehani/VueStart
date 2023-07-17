@@ -25,6 +25,10 @@ export default {
      // this will disable given the attriubutes by inherintence
     data() {
         return {
+            name: {
+                firstName: 'John' , 
+                lastName: 'Doe' , 
+            }
 
         }
     }

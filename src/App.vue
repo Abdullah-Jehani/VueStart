@@ -164,7 +164,7 @@ the old way to compine v-for and v-if
 <componentC></componentC>
 <h3>AppComponent Username -  {{injectname}}</h3>
   <button @click="showPopup = true">Show Pop Up</button>
-  <PopUpComponent name="Closing Now" v-show="showPopup" @close="popupFunction" />
+  <PopUpComponent v-show="showPopup" @close="popupFunction">Show Component</PopUpComponent>
   <InputComponent v-model="componentName"/> 
   <CardComponent content="This is My Card Number 1" />
   <card-component>Hello World</card-component>
@@ -219,9 +219,25 @@ the old way to compine v-for and v-if
 
 
 -->
+<teatchersComponent>
+  <template v-slot:default="slotProps">
+  {{slotProps.id}} {{slotProps.firstName}}
+  </template>
+</teatchersComponent>
+
+<teatchersComponent>
+  <template v-slot:default="slotProps">
+  {{slotProps.salary}} {{slotProps.firstName}}
+  </template>
+</teatchersComponent>
+<button @click="date = Date()">click to display date</button>
+<p>{{date}}</p>
+<AppButton @click="showText = !showText">Press Me</AppButton>
+<h2 v-if="showText">Hello world</h2>
 
 </template>   
 <script> 
+import AppButton from './assets/components/AppButton.vue'
 import greetPrint from './assets/components/greet.vue' 
 import ArticleComponent from './assets/components/Article.vue' 
 import componentC from './assets/components/componentC.vue' 
@@ -233,11 +249,13 @@ import SalesComponent from './assets/components/SalesComponent.vue'
 import StudentsComponent from './assets/components/students.vue'
 import tabA from './assets/components/tabA.vue' 
 import tabB from './assets/components/tabB.vue' 
-import tabC from './assets/components/tabC.vue' 
+import tabC from './assets/components/tabC.vue'
+import teatchersComponent from './assets/components/teatchers.vue'
 
 export default{
   name: 'App' , 
   components: {
+    AppButton , 
     PopUpComponent,
     greetPrint,
     ArticleComponent , 
@@ -249,10 +267,14 @@ export default{
     StudentsComponent ,
     tabA , 
     tabB , 
-    tabC
+    tabC , 
+    teatchersComponent , 
+
   },
   data() {
     return {
+      showText :false ,
+      date: '' , 
       activeTab: '' , 
       componentName: '' , 
       showPopup:false , 
@@ -354,6 +376,9 @@ export default{
     } ;
   },
   methods: {
+    myfunction() {
+      return this.date = Date() ; 
+    } ,
     popupFunction(name) {
       this.showPopup = false
       console.log('name' , name)
